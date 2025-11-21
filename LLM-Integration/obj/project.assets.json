@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\TFS\\LLM-Integration\\LLM-Integration\\LLM-Integration.csproj",
+      "projectUniqueName": "C:\\TFS\\LLM-Integration\\LLM-Integration\\LLM-Integration.csproj",
       "projectName": "LLM-Integration",
-      "projectPath": "c:\\TFS\\LLM-Integration\\LLM-Integration\\LLM-Integration.csproj",
+      "projectPath": "C:\\TFS\\LLM-Integration\\LLM-Integration\\LLM-Integration.csproj",
       "packagesPath": "C:\\Users\\bhavi\\.nuget\\packages\\",
-      "outputPath": "c:\\TFS\\LLM-Integration\\LLM-Integration\\obj\\",
+      "outputPath": "C:\\TFS\\LLM-Integration\\LLM-Integration\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\bhavi\\AppData\\Roaming\\NuGet\\NuGet.Config"

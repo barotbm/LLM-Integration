@@ -1,0 +1,15 @@
+C:\TFS\LLM-Integration\LLM-Integration\bin\Debug\net9.0\LLM-Integration.exe
+C:\TFS\LLM-Integration\LLM-Integration\bin\Debug\net9.0\LLM-Integration.deps.json
+C:\TFS\LLM-Integration\LLM-Integration\bin\Debug\net9.0\LLM-Integration.runtimeconfig.json
+C:\TFS\LLM-Integration\LLM-Integration\bin\Debug\net9.0\LLM-Integration.dll
+C:\TFS\LLM-Integration\LLM-Integration\bin\Debug\net9.0\LLM-Integration.pdb
+C:\TFS\LLM-Integration\LLM-Integration\obj\Debug\net9.0\LLM-Integration.GeneratedMSBuildEditorConfig.editorconfig
+C:\TFS\LLM-Integration\LLM-Integration\obj\Debug\net9.0\LLM-Integration.AssemblyInfoInputs.cache
+C:\TFS\LLM-Integration\LLM-Integration\obj\Debug\net9.0\LLM-Integration.AssemblyInfo.cs
+C:\TFS\LLM-Integration\LLM-Integration\obj\Debug\net9.0\LLM-Integration.csproj.CoreCompileInputs.cache
+C:\TFS\LLM-Integration\LLM-Integration\obj\Debug\net9.0\LLM-Integration.sourcelink.json
+C:\TFS\LLM-Integration\LLM-Integration\obj\Debug\net9.0\LLM-Integration.dll
+C:\TFS\LLM-Integration\LLM-Integration\obj\Debug\net9.0\refint\LLM-Integration.dll
+C:\TFS\LLM-Integration\LLM-Integration\obj\Debug\net9.0\LLM-Integration.pdb
+C:\TFS\LLM-Integration\LLM-Integration\obj\Debug\net9.0\LLM-Integration.genruntimeconfig.cache
+C:\TFS\LLM-Integration\LLM-Integration\obj\Debug\net9.0\ref\LLM-Integration.dll
