@@ -1,9 +1,12 @@
 ## Ignore Settings with secrets
 LLM-Integration/Settings.json
+LLM-Integration.Tests/Settings.json
 
 ## Build results
 bin/
 obj/
+**/bin/
+**/obj/
 *.dll
 *.exe
 *.pdb
