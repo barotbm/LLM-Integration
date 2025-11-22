@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LLM-Integration")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fd18ee0799899a10f61bc8f7e67391f397ab88c1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8de917d9aeba21d7abb669ba3df74bd9331341f4")]
 [assembly: System.Reflection.AssemblyProductAttribute("LLM-Integration")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LLM-Integration")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

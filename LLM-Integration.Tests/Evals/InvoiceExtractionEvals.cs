@@ -134,10 +134,14 @@ public class InvoiceExtractionEvals
         var delta = 0.01m; // Allow 0.01 for rounding errors
 
         // Act
-        var result = mockService.ExtractInvoiceAsync(invoiceText).Result;
+        var extractionResult = mockService.ExtractInvoiceAsync(invoiceText).Result;
 
         // Assert
-        Assert.NotNull(result);
+        Assert.NotNull(extractionResult);
+        Assert.True(extractionResult.Success, $"Extraction failed: {extractionResult.Metrics.ErrorMessage}");
+        Assert.NotNull(extractionResult.Data);
+
+        var result = extractionResult.Data;
 
         // Calculate sum of line items
         var lineItemsTotal = result.LineItems.Sum(item => item.Amount);
@@ -163,10 +167,14 @@ public class InvoiceExtractionEvals
         const int maxLevenshteinDistance = 3; // Allow up to 3 character differences
 
         // Act
-        var result = mockService.ExtractInvoiceAsync(invoiceText).Result;
+        var extractionResult = mockService.ExtractInvoiceAsync(invoiceText).Result;
 
         // Assert
-        Assert.NotNull(result);
+        Assert.NotNull(extractionResult);
+        Assert.True(extractionResult.Success, $"Extraction failed: {extractionResult.Metrics.ErrorMessage}");
+        Assert.NotNull(extractionResult.Data);
+
+        var result = extractionResult.Data;
         Assert.NotNull(result.VendorName);
 
         // Calculate Levenshtein distance between extracted and expected vendor names
@@ -190,10 +198,14 @@ public class InvoiceExtractionEvals
         var mockService = CreateMockInvoiceService(invoiceText, expectedVendor, expectedTotal);
 
         // Act
-        var result = mockService.ExtractInvoiceAsync(invoiceText).Result;
+        var extractionResult = mockService.ExtractInvoiceAsync(invoiceText).Result;
 
         // Assert
-        Assert.NotNull(result);
+        Assert.NotNull(extractionResult);
+        Assert.True(extractionResult.Success, $"Extraction failed: {extractionResult.Metrics.ErrorMessage}");
+        Assert.NotNull(extractionResult.Data);
+
+        var result = extractionResult.Data;
 
         // Check that InvoiceDate is not null
         Assert.NotNull(result.InvoiceDate);
@@ -234,7 +246,7 @@ internal class MockInvoiceParser : IInvoiceParser
         _totalAmount = totalAmount;
     }
 
-    public Task<InvoiceExtractionResult> ExtractInvoiceAsync(string invoiceText, CancellationToken cancellationToken = default)
+    public async Task<ExtractionResult> ExtractInvoiceAsync(string invoiceText, CancellationToken cancellationToken = default)
     {
         // Parse the invoice text to extract line items and dates
         // This is a simplified mock that extracts basic info from the test data
@@ -268,7 +280,7 @@ internal class MockInvoiceParser : IInvoiceParser
             invoiceDate = extractedDate;
         }
 
-        var result = new InvoiceExtractionResult
+        var data = new InvoiceExtractionResult
         {
             InvoiceNumber = "INV-MOCK-001",
             VendorName = _vendorName,
@@ -277,6 +289,30 @@ internal class MockInvoiceParser : IInvoiceParser
             LineItems = lineItems
         };
 
-        return Task.FromResult(result);
+        var metrics = new ExtractionMetrics
+        {
+            PromptTokens = 150,
+            CompletionTokens = 50,
+            TotalTokens = 200,
+            RequestDurationMs = 50,
+            ProcessingDurationMs = 100,
+            TotalDurationMs = 150,
+            HttpStatusCode = 200,
+            Model = "gpt-4o-2024-08-06",
+            RequestId = "mock-request-id",
+            RequestTimestampUtc = DateTime.UtcNow,
+            EstimatedCostUsd = 0.0020m,
+            InputSizeBytes = invoiceText.Length,
+            ResponseSizeBytes = 200,
+            IsSuccessful = true,
+            ErrorMessage = null,
+            FinishReason = "stop"
+        };
+
+        return await Task.FromResult(new ExtractionResult
+        {
+            Data = data,
+            Metrics = metrics
+        });
     }
 }
