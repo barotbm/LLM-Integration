@@ -1,0 +1,23 @@
+## Ignore Settings with secrets
+LLM-Integration/Settings.json
+
+## Build results
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+
+## IDEs
+.vs/
+.vscode/
+*.sln.iml
+*.user
+
+## OS
+.DS_Store
+Thumbs.db
+
+## Dependencies
+packages/
+node_modules/
