@@ -1,15 +1,15 @@
 namespace LLM_Integration.Models;
 
 /// <summary>
-/// Represents the complete result of an invoice extraction operation,
-/// including both the extracted data and observability metrics.
+/// Generic wrapper that combines extracted data with observability metrics.
 /// </summary>
-public record ExtractionResult
+/// <typeparam name="T">The type of data being extracted.</typeparam>
+public record ExtractionResult<T> where T : class
 {
     /// <summary>
-    /// The extracted invoice data. Null if extraction failed.
+    /// The extracted data. Null if extraction failed.
     /// </summary>
-    public InvoiceExtractionResult? Data { get; init; }
+    public T? Data { get; init; }
 
     /// <summary>
     /// Comprehensive metrics about the extraction operation.
@@ -17,7 +17,14 @@ public record ExtractionResult
     public required ExtractionMetrics Metrics { get; init; }
 
     /// <summary>
-    /// Whether the extraction was successful.
+    /// Indicates whether the extraction was successful.
     /// </summary>
     public bool Success => Data != null && Metrics.IsSuccessful;
+}
+
+/// <summary>
+/// Non-generic wrapper for backward compatibility with invoice extraction.
+/// </summary>
+public record ExtractionResult : ExtractionResult<InvoiceExtractionResult>
+{
 }
